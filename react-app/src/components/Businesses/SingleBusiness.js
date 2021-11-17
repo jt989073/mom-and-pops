@@ -27,9 +27,12 @@ const SingleBusiness = () => {
         history.push("/businesses")
     }
 
+    console.log(business.review_ids, "sdfghjdfghjkfghjk")
+
     let reviewCards;
     if (reviews){
         reviewCards = Object.values(reviews).map((review) => {
+            // console.log(review, "this the review")
             if (business.review_ids.includes(review.id)) {
                 return <ReviewCard key={review.id} review={review} />
             }
