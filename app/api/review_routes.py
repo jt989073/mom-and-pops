@@ -54,6 +54,7 @@ def review_edit(id):
 @review_routes.route('/<int:id>', methods=["DELETE"])
 # @login_required
 def review_delete(id):
-    Review.query.filter(Review.id == id).delete()
+    review = Review.query.get(id)
+    db.session.delete(review)
     db.session.commit()
-    return "True", 201
+    return review.to_dict()

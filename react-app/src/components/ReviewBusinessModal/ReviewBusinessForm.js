@@ -70,7 +70,6 @@ function ReviewBusinessForm({SetBusinessModal}) {
                 onChange={(e) => setRating(e.target.value)}
               >
                 <option value="">--Rating--</option>
-                <option value={0}>0</option>
                 <option value={1}>1</option>
                 <option value={2}>2</option>
                 <option value={3}>3</option>

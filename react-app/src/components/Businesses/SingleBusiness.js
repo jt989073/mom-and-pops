@@ -23,6 +23,8 @@ const SingleBusiness = () => {
         dispatch(loadReviews())
     }, [dispatch])
 
+
+
     const handleDelete = (e) => {
         e.preventDefault();
         dispatch(deleteBusiness(businessId))
@@ -35,7 +37,7 @@ const SingleBusiness = () => {
     if (reviews){
         reviewCards = Object.values(reviews).map((review) => {
             // console.log(review, "this the review")
-            if (business.review_ids.includes(review.id)) {
+            if (business.review_ids?.includes(review.id)) {
                 return <ReviewCard key={review.id} review={review} />
             }
             return reviewCards
