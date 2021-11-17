@@ -32,8 +32,6 @@ export const loadBusinesses = () => async (dispatch) => {
   }
 };
 
-
-
 export const createBusiness = (business) => async (dispatch) => {
   const res = await fetch("/api/businesses", {
     method: "POST",

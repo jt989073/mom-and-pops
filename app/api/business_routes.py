@@ -15,7 +15,7 @@ def businesses():
         business = Business(**request.json)
         db.session.add(business)
         db.session.commit()
-    return {business.id: business.to_card_dict() for business in Business.query.all()}
+    return {business.id: business.to_dict() for business in Business.query.all()}
 
 
 
