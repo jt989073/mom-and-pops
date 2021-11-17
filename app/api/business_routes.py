@@ -41,3 +41,9 @@ def updateBusiness(id):
     else:
         return form.errors
 
+
+@business_routes.route('/<int:id>', methods=['DELETE'])
+def delete_business(id):
+    Business.query.filter(Business.id == id).delete()
+    db.session.commit()
+    return "True", 201
