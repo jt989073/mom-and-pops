@@ -9,7 +9,7 @@ def seed_businesses():
     five_points = Business(
         name="Five Points Distilling", street="8575 Union Hill Rd", city="Pampa", state="Texas", latitude="32.6847", longitude="96.4779", image="https://res.cloudinary.com/dis83syog/image/upload/v1636208014/SpeakEasy/Screen_Shot_2021-11-06_at_10.12.32_AM_zgguty.png", user_id=3)
     firestone_robertson = Business(
-        name="Firestone & Robertson Distilling Co.", street="4250 Mitchell Blvd", city="Pampa", state="Texas", latitude="32.6999", longitude="97.2901", image="https://dg6qn11ynnp6a.cloudfront.net/wp-content/uploads/2020/01/22143940/Business0_a1208968-5056-a348-3a53f2590489c450.jpg", user_id=4)
+        name="Firestone & Robertson Distilling Co.", street="4250 Mitchell Blvd", city="Pampa", state="Texas", latitude="32.6999", longitude="97.2901", image="https://res.cloudinary.com/dqwy6sxtc/image/upload/v1634510806/poolupp/Fotolia_82228128_Subscription_Monthly_M_2048x2048_eshw58.jpg", user_id=4)
     blackland = Business(
         name="Blackland Business", street="2616 Weisenberger St", city="Pampa", state="Texas", latitude="32.7573", longitude="97.3536", image="https://res.cloudinary.com/dis83syog/image/upload/v1636208188/SpeakEasy/images_h57umn.png", user_id=5)
     crowded_barrel = Business(
@@ -21,13 +21,13 @@ def seed_businesses():
     fox_seeker = Business(
         name="Fox & Seeker", street="5750 N Sam Houston Pkwy", city="Pampa", state="Texas", latitude="30.1020", longitude="-95.3275", image="https://pbs.twimg.com/profile_images/993602982238339072/1eP9rwMQ.jpg", user_id=9)
     rebecca_creek = Business(
-        name="Rebecca Creek Business", street="26605 Bulverde Rd", city="Pampa", state="Texas", latitude="29.6941", longitude="98.4545", image="https://www.rebeccacreekBusiness.com/schema-image.png", user_id=10)
+        name="Rebecca Creek Business", street="26605 Bulverde Rd", city="Pampa", state="Texas", latitude="29.6941", longitude="98.4545", image="https://res.cloudinary.com/dqwy6sxtc/image/upload/v1634429380/poolupp/d6317980ba046f2cfbdf18e6ce59225c_pntzvo.jpg", user_id=10)
     ranger_creek = Business(
-        name="Ranger Creek Brewing & Distilling", street="4834 Whirlwind Dr", city="Pampa", state="Texas", latitude="30.5117", longitude="-98.3337", image="https://images.squarespace-cdn.com/content/v1/59da7f606f4ca34ba294a74e/1519252036931-OUZC5KYJ59OIA63HQR7I/RangerCreek_Mainimage1.jpg", user_id=11)
+        name="Ranger Creek Brewing & Distilling", street="4834 Whirlwind Dr", city="Pampa", state="Texas", latitude="30.5117", longitude="-98.3337", image="https://res.cloudinary.com/dqwy6sxtc/image/upload/v1634338067/poolupp/jyrki-nieminen-90D0inZiIBo-unsplash_jgucem.jpg", user_id=11)
     devils_river = Business(
-        name="Devils River Business", street="401 E Houston St", city="Pampa", state="Texas", latitude="29.4268", longitude="98.4883", image="https://www.texasbrigades.org/wp-content/uploads/2020/01/devils-river-whiskey-image-black.jpg", user_id=12)
+        name="Devils River Business", street="401 E Houston St", city="Pampa", state="Texas", latitude="29.4268", longitude="98.4883", image="https://res.cloudinary.com/dqwy6sxtc/image/upload/v1634339701/poolupp/avi-richards-63upADTGaL4-unsplash_hst8ft.jpg", user_id=12)
     artisan = Business(
-        name="Artisan Business Craft Bar", street="402 Austin St", city="Pampa", state="Texas", latitude="30.9470", longitude="-98.5094", image="https://artisans.al/wp-content/uploads/2017/10/Artisan-image-Finale-01-1170x399.png", user_id=13)
+        name="Artisan Business Craft Bar", street="402 Austin St", city="Pampa", state="Texas", latitude="30.9470", longitude="-98.5094", image="https://res.cloudinary.com/dqwy6sxtc/image/upload/v1634024436/poolupp/naufal-ardi-santoso-VJxwuMR3HFE-unsplash_sjnfhs.jpg", user_id=13)
     whitmeyer = Business(
         name="Whitmeyer's Distilling Co.", street="5301 Nolda St", city="Pampa", state="Texas", latitude="29.7760", longitude="95.4161", image="https://www.bourbonbanter.com/wp-content/uploads/2018/07/Whitmeyers-Distilling-Company-Header.jpg", user_id=14)
     hill_country = Business(
