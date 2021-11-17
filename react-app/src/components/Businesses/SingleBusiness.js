@@ -16,6 +16,7 @@ const SingleBusiness = () => {
     const currentUser = useSelector(state => state.session.user)
     const reviews = useSelector(state => state.reviews)
 
+
     useEffect(()=>{
         dispatch(loadOneBusiness(businessId))
         dispatch(loadReviews())
@@ -27,7 +28,7 @@ const SingleBusiness = () => {
         history.push("/businesses")
     }
 
-    console.log(business.review_ids, "sdfghjdfghjkfghjk")
+
 
     let reviewCards;
     if (reviews){
@@ -39,6 +40,8 @@ const SingleBusiness = () => {
             return reviewCards
         })
     }
+
+
 
 
     return (
