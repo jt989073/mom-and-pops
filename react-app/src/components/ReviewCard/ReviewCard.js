@@ -38,7 +38,8 @@ function ReviewCard({review}) {
     if (edit){
         return (
             <div className={styles.editCard}>
-                <form onSubmit={handleEdit}>
+                <form
+                 onSubmit={handleEdit}>
                     <ul>
                         {errors.map((error) => (
                             <li key={error}>{error}</li>
@@ -61,7 +62,6 @@ function ReviewCard({review}) {
                             <option value="" disabled>
                                 --Rating--
                             </option>
-                            <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
