@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loadOneBusiness } from "../../store/business";
 import { updateReview } from "../../store/reviews";
+import { deleteReview } from "../../store/reviews";
 import styles from './ReviewCard.module.css'
 
 function ReviewCard({review}) {
@@ -33,7 +34,7 @@ function ReviewCard({review}) {
         setErrors(err);
     };
 
-    const deleteReview = () => {
+    const handleDelete = () => {
         dispatch(deleteReview(review.id))
     }
 
@@ -94,7 +95,7 @@ function ReviewCard({review}) {
                     </button>
                     <button
                         className={styles.reviewButtons}
-                        onClick={deleteReview}>
+                        onClick={handleDelete}>
                         Delete
                     </button>
                 </div>

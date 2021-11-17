@@ -44,6 +44,7 @@ def updateBusiness(id):
 
 @business_routes.route('/<int:id>', methods=['DELETE'])
 def delete_business(id):
-    Business.query.filter(Business.id == id).delete()
+    business = Business.query.get(id)
+    db.session.delete(business)
     db.session.commit()
-    return "True", 201
+    return business.to_dict()

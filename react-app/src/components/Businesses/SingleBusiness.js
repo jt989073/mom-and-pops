@@ -23,6 +23,8 @@ const SingleBusiness = () => {
         dispatch(loadReviews())
     }, [dispatch])
 
+
+
     const handleDelete = (e) => {
         e.preventDefault();
         dispatch(deleteBusiness(businessId))
