@@ -34,7 +34,7 @@ class Business(db.Model, UserMixin):
             'latitude': self.latitude,
             'longitude': self.longitude,
             'image': self.image,
-            'owner_id': self.owner.id,
+            'user_id': self.user_id,
             'review_ids': [review.id for review in self.review],
         }
 
@@ -43,6 +43,6 @@ class Business(db.Model, UserMixin):
             'id': self.id,
             'name': self.name,
             'street': self.street,
-            'logo': self.logo,
-            'user_id': self.user.id
+            'image': self.image,
+            'user_id': self.user_id
         }
