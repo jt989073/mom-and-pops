@@ -17,10 +17,10 @@ class Business(db.Model, UserMixin):
     longitude = db.Column(db.String)
     image = db.Column(db.Text)
     user_id = db.Column(db.Integer, db.ForeignKey(
-        'users.id', ondelete='CASCADE'))
+        'users.id'))
 
 
-    user = db.relationship('User', back_populates="businesses", cascade="all")
+    user = db.relationship('User', back_populates="businesses")
     review = db.relationship(
         "Review", back_populates="business", cascade="all, delete")
 

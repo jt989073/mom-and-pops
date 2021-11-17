@@ -19,6 +19,6 @@ def seed():
 
 @seed_commands.command('undo')
 def undo():
-    undo_users()
-    undo_businesses()
     undo_reviews()
+    undo_businesses()
+    undo_users()
