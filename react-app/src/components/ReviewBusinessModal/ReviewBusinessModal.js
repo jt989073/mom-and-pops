@@ -1,7 +1,7 @@
 import React, {  useState } from "react";
 import { Modal } from "../../context/Modal";
-import EditBusinessForm from "./EditBusinessForm";
-import styles from "./EditBusinessModal.module.css"
+import ReviewBusinessForm from "./ReviewBusinessForm";
+import styles from "./ReviewBusinessModal.module.css"
 // import { useDispatch, useSelector } from "react-redux";
 
 

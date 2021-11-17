@@ -1,81 +1,94 @@
 
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { useHistory } from "react-router";
 import { useState } from "react";
-import { updateBusiness } from "../../store/businesses";
-import styles from "./EditBusiness.module.css";
+import { createReview } from "../../store/reviews";
+import styles from "./ReviewBusinessForm.module.css"
+import { loadBusinesses } from "../../store/businesses";
 import { loadOneBusiness } from "../../store/business";
 
-function EditBusinessForm({SetBusinessModal}) {
+function ReviewBusinessForm({SetBusinessModal}) {
     const dispatch = useDispatch();
-    const userId = useSelector(state => state.session.user.id)
-    const businessId = useSelector(state => state.business.id)
-    console.log(userId, "this the userId")
 
     const [errors, setErrors] = useState([]);
-    const [businessName, setBusinessName] = useState("");
-    const [street, setStreet] = useState("");
-    const [City, setCity] = useState("");
-    const [state, setState] = useState("");
-    const [image, setImage] = useState("");
+    const [review, setReview] = useState("");
+    const [rating, setRating] = useState();
+
+    const businessId = useSelector(state => state.business.id)
+    const userId = useSelector(state => state.session.user.id)
 
 
-    const onSubmit = (e) => {
+
+    const onSubmit = async (e) => {
         e.preventDefault();
 
-        const newBusiness = {
-            name: businessName,
-            street: street,
-            city: City,
-            state: state,
-            image: image,
-        };
-        let updatedBusiness = dispatch(updateBusiness(businessId, newBusiness))
-        dispatch(loadOneBusiness(businessId))
-
-        if (updatedBusiness) {
-            setErrors(updatedBusiness);
+        if (review) {
+            const new_review = {
+                review: review,
+                rating: rating,
+                user_id: userId,
+                business_id: businessId,
+            };
+            dispatch(createReview(new_review)).then(() =>
+                dispatch(loadOneBusiness(businessId))
+            )
         }
         SetBusinessModal(false)
     };
 
     return (
-        <>
+      <div className={styles.reviewContainer}>
+        <div className={styles.reviewFormHeader}>
+          <h1 className={styles.reviewModalTitle}>Review</h1>
+        </div>
+        <form className={styles.reviewForm} onSubmit={onSubmit}>
+          <ul>
+            {errors.length > 0
+              ? errors.map((valError) => <li key={valError}>{valError}</li>)
+              : null}
+          </ul>
+          <div className={styles.formSection}>
+            <label className={styles.reviewLabel}>Review</label>
+            <textarea
+              name="review"
+              required
+              value={review}
+              onChange={(e) => setReview(e.target.value)}
+              placeholder="Leave A review for this business"
+              className={styles.reviewText}
+              rows={4}
+            />
+          </div>
+          <div>
             <div>
-                <h1>Review Business</h1>
+              <label className={styles.reviewLabelTwo}>Rating</label>
+              <select
+                className={styles.reviewSelect}
+                name="rating"
+                value={rating}
+                required
+                onChange={(e) => setRating(e.target.value)}
+              >
+                <option value="">--Rating--</option>
+                <option value={0}>0</option>
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+                <option value={4}>4</option>
+                <option value={5}>5</option>
+              </select>
             </div>
-            <form onSubmit={onSubmit}>
-                <ul>
-                    {errors.map((error) => (
-                        <li key={error}>{error}</li>
-                    ))}
-                </ul>
-                <div>
-                    <input
-                        className={styles.name_input}
-                        type="text"
-                        name="name"
-                        value={businessName}
-                        required
-                        onChange={(e) => setBusinessName(e.target.value)}
-                        placeholder="Business Name"
-                    />
-                </div>
-                <div>
-                    <input
-                        type="text"
-                        name="description"
-                        required
-                        value={street}
-                        onChange={(e) => setStreet(e.target.value)}
-                        placeholder="Street"
-                    />
-                </div>
-                <button>Create</button>
-            </form>
-        </>
+          </div>
+          <div className={styles.reviewButtonWrap}>
+            <button
+              disabled={errors.length > 0}
+              className={styles.reviewButton}
+            >
+              Review
+            </button>
+          </div>
+        </form>
+      </div>
     );
 }
-
-export default EditBusinessForm;
+export default ReviewBusinessForm;
