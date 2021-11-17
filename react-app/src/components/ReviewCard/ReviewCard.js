@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { loadOneBusiness } from "../../store/business";
 import { updateReview } from "../../store/reviews";
+import { deleteReview } from "../../store/reviews";
 import styles from './ReviewCard.module.css'
 
 function ReviewCard({review}) {
@@ -11,6 +13,7 @@ function ReviewCard({review}) {
     const [errors, setErrors] = useState([]);
 
     const currentUserId = useSelector(state => state.session.user.id)
+    const businessId = useSelector(state => state.business.id)
 
     const handleEdit = (e) => {
         e.preventDefault();
@@ -31,14 +34,15 @@ function ReviewCard({review}) {
         setErrors(err);
     };
 
-    const deleteReview = () => {
+    const handleDelete = () => {
         dispatch(deleteReview(review.id))
     }
 
     if (edit){
         return (
             <div className={styles.editCard}>
-                <form onSubmit={handleEdit}>
+                <form
+                 onSubmit={handleEdit}>
                     <ul>
                         {errors.map((error) => (
                             <li key={error}>{error}</li>
@@ -61,7 +65,6 @@ function ReviewCard({review}) {
                             <option value="" disabled>
                                 --Rating--
                             </option>
-                            <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -71,6 +74,7 @@ function ReviewCard({review}) {
                     </div>
                     <div>
                         <button>Update</button>
+                        <button onClick={() => setEdit(false)}>Cancel</button>
                     </div>
                 </form>
             </div>
@@ -91,7 +95,7 @@ function ReviewCard({review}) {
                     </button>
                     <button
                         className={styles.reviewButtons}
-                        onClick={deleteReview}>
+                        onClick={handleDelete}>
                         Delete
                     </button>
                 </div>
