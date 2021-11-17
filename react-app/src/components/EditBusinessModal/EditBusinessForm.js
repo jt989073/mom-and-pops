@@ -2,12 +2,14 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import { useHistory } from "react-router";
 import { useState } from "react";
-import { createBusiness, loadBusinesses } from "../../store/businesses";
-import styles from "./CreateBusiness.module.css";
+import { updateBusiness } from "../../store/businesses";
+import styles from "./EditBusiness.module.css";
+import { loadOneBusiness } from "../../store/business";
 
-function CreateBusinessForm({SetBusinessModal}) {
+function EditBusinessForm({SetBusinessModal}) {
     const dispatch = useDispatch();
     const userId = useSelector(state => state.session.user.id)
+    const businessId = useSelector(state => state.business.id)
     console.log(userId, "this the userId")
 
     const [errors, setErrors] = useState([]);
@@ -27,14 +29,11 @@ function CreateBusinessForm({SetBusinessModal}) {
             city: City,
             state: state,
             image: image,
-            user_id: userId
         };
-        let createdBusiness = dispatch(createBusiness(newBusiness)).then(() =>
-            dispatch(loadBusinesses())
-        )
+        let updatedBusiness = dispatch(updateBusiness(businessId, newBusiness)).then(() => loadOneBusiness(businessId))
 
-        if (createdBusiness) {
-            setErrors(createdBusiness);
+        if (updatedBusiness) {
+            setErrors(updatedBusiness);
         }
         SetBusinessModal(false)
     };
@@ -42,7 +41,7 @@ function CreateBusinessForm({SetBusinessModal}) {
     return (
         <>
             <div>
-                <h1>Create Business</h1>
+                <h1>Edit Business</h1>
             </div>
             <form onSubmit={onSubmit}>
                 <ul>
@@ -112,4 +111,4 @@ function CreateBusinessForm({SetBusinessModal}) {
     );
 }
 
-export default CreateBusinessForm;
+export default EditBusinessForm;

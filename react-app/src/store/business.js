@@ -7,7 +7,7 @@ const loadOne = (business) => ({
 })
 /*-------------THUNKS-------------*/
 export const loadOneBusiness = (id) => async (dispatch) => {
-    const res = await fetch(`/api/distilleries/${id}`)
+    const res = await fetch(`/api/businesses/${id}`)
     if (res.ok){
         const business = await res.json()
         dispatch(loadOne(business))
