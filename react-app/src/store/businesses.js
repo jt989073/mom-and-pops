@@ -1,7 +1,7 @@
 /*-------------ACTION.TYPES-------------*/
 const LOAD_BUSINESSES = "business/LOAD_BUSINESSES";
-const CREATE_BUSINESS = "business/CREATE_DISTILLERY";
-const UPDATE_BUSINESS = "business/UPDATE_DISTILLERY"
+const CREATE_BUSINESS = "business/CREATE_BUSINESS";
+const UPDATE_BUSINESS = "business/UPDATE_BUSINESS"
 const DELETE_BUSINESS = "business/DELETE_BUSINESS"
 /*-------------ACTIONS-------------*/
 const load = (businesses) => ({
@@ -60,6 +60,7 @@ export const updateBusiness = (businessId, payload) => async (dispatch) => {
     if(res.ok) {
         const business = await res.json()
         dispatch(update(business))
+        return business
     }
 }
 

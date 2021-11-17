@@ -30,7 +30,8 @@ function EditBusinessForm({SetBusinessModal}) {
             state: state,
             image: image,
         };
-        let updatedBusiness = dispatch(updateBusiness(businessId, newBusiness)).then(() => loadOneBusiness(businessId))
+        let updatedBusiness = dispatch(updateBusiness(businessId, newBusiness))
+        dispatch(loadOneBusiness(businessId))
 
         if (updatedBusiness) {
             setErrors(updatedBusiness);
