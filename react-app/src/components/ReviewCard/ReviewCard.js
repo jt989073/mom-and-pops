@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { loadOneBusiness } from "../../store/business";
 import { updateReview } from "../../store/reviews";
 import styles from './ReviewCard.module.css'
 
@@ -11,6 +12,7 @@ function ReviewCard({review}) {
     const [errors, setErrors] = useState([]);
 
     const currentUserId = useSelector(state => state.session.user.id)
+    const businessId = useSelector(state => state.business.id)
 
     const handleEdit = (e) => {
         e.preventDefault();
@@ -71,6 +73,7 @@ function ReviewCard({review}) {
                     </div>
                     <div>
                         <button>Update</button>
+                        <button onClick={() => setEdit(false)}>Cancel</button>
                     </div>
                 </form>
             </div>
