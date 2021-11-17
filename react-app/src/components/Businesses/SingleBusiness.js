@@ -5,6 +5,7 @@ import { loadOneBusiness } from "../../store/business";
 import { deleteBusiness } from "../../store/businesses";
 import { loadReviews } from "../../store/reviews";
 import EditBusinessModal from "../EditBusinessModal";
+import ReviewBusinessModal from "../ReviewBusinessModal/ReviewBusinessModal";
 import ReviewCard from "../ReviewCard/ReviewCard";
 
 const SingleBusiness = () => {
@@ -15,6 +16,7 @@ const SingleBusiness = () => {
     const business = useSelector(state => state.business)
     const currentUser = useSelector(state => state.session.user)
     const reviews = useSelector(state => state.reviews)
+
 
     useEffect(()=>{
         dispatch(loadOneBusiness(businessId))
@@ -27,7 +29,7 @@ const SingleBusiness = () => {
         history.push("/businesses")
     }
 
-    console.log(business.review_ids, "sdfghjdfghjkfghjk")
+
 
     let reviewCards;
     if (reviews){
@@ -38,7 +40,10 @@ const SingleBusiness = () => {
             }
             return reviewCards
         })
+        .reverse()
     }
+
+
 
 
     return (
@@ -50,6 +55,9 @@ const SingleBusiness = () => {
                 </div>
                 <div>
                     <EditBusinessModal />
+                </div>
+                <div>
+                    <ReviewBusinessModal />
                 </div>
             </>
         ) : null
