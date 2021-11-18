@@ -20,9 +20,7 @@ const NavBar = () => {
   return (
     <div className={styles.nav_container}>
       <div className={styles.left_container}>
-        <NavLink to="/" exact={true} activeClassName="active">
-          Home
-        </NavLink>
+        <img src="https://res.cloudinary.com/dqwy6sxtc/image/upload/v1637193255/poolupp/logo_ffu0hf.png" alt="logo" />
       </div>
       <div className={styles.right_container}>
         {!user && (
