@@ -104,13 +104,13 @@ const NavBar = () => {
               >
                 Businesses
               </button>
-              ;
+
             </div>
             <div>
               <button className="nav_button" onClick={onLogout}>
                 Logout
               </button>
-              ;
+              
             </div>
           </>
         )}
