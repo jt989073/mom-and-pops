@@ -48,3 +48,10 @@ def delete_business(id):
     db.session.delete(business)
     db.session.commit()
     return business.to_dict()
+
+
+@business_routes.route('/search', methods=["PUT"])
+def search():
+    data = request.json['input']
+    businesses = Business.query.filter(Business.name.ilike(f'%{data}%')).all()
+    return {'businesses': [business.to_dict() for business in businesses]}
