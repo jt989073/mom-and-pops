@@ -28,3 +28,22 @@
   padding: 5px;
   margin-right: 20px;
 }
+
+.search-container{
+    margin-top: 70px;
+    margin-right: 50px;
+}
+
+.search-card{
+    background-color: pink;
+    /* margin-top: 80px; */
+}
+
+.search-image{
+    height: 50px;
+    width: 50px;
+}
+
+.search-results {
+    margin-top: 50px;
+}
