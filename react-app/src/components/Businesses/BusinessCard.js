@@ -12,7 +12,6 @@ const BusinessCard = ({ business }) => {
                     {business.name}
                 </Link>
             </div>
-            <div className={styles.street}>{business.street}</div>
             <div className={styles.imgContainer}>
                 <Link to={`/businesses/${business.id}`}>
                     <img
@@ -22,6 +21,7 @@ const BusinessCard = ({ business }) => {
                     />
                 </Link>
             </div>
+            <div className={styles.street}>{business.street}</div>
         </div>
     );
 };

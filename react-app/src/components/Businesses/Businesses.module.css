@@ -1,0 +1,23 @@
+.feedWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    height: 1175px;
+    width: 2375px;
+    background-image: url("https://res.cloudinary.com/dqwy6sxtc/image/upload/v1637303783/poolupp/trawa-pampasowa-uprawa-pielegnacja-zastosowanie_ocgvrw.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    overflow: auto;
+}
+
+.businessCard{
+    margin-top: 100px;
+    height: 500px;
+    width: 500px;
+}
+
+
+.createButton {
+    margin-top: 100px;
+    margin-right: 50px;
+}

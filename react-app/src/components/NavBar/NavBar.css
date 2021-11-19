@@ -1,9 +1,11 @@
 .nav_container {
   display: flex;
+  position: fixed;
   align-items: center;
   min-width: 100%;
-  top: -10;
-  height: 75px;
+  top: 0;
+  left: 0;
+  height: 85px;
   background-color: rgb(5, 42, 0);
 }
 
@@ -23,15 +25,30 @@
 }
 
 .nav_button {
-  height: 30px;
-  width: 84px;
+  height: 35px;
+  width: 92px;
   padding: 5px;
+  color: rgb(5, 42, 0);
+  font-weight: bold;
+  background-color: rgb(211, 179, 0);
+  border: 3px solid black;
   margin-right: 20px;
 }
 
+.hidden {
+    display:none;
+}
+
+.nav_button:hover{
+    background-color: pink;
+}
 .search-container{
-    margin-top: 70px;
     margin-right: 50px;
+    /* position: absolute; */
+}
+
+.search-none{
+    position: absolute;
 }
 
 .search-card{
@@ -46,4 +63,5 @@
 
 .search-results {
     margin-top: 50px;
+    position:absolute;
 }

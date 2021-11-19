@@ -22,18 +22,20 @@ const Businesses = () => {
     }
 
     return (
-        <div className={styles.feedWrapper}>
-            <CreateBusinessModal />
-            {businesses &&
-                Object.values(businesses).map((business, idx) => (
-                    <div key={idx} className={styles.businessCard}>
-                        <BusinessCard
-                            key={business.id}
-                            business={business}
-                        />
-                    </div>
-                ))}
-        </div>
+        <>
+            <div className={styles.feedWrapper}>
+                <div className={styles.createButton}><CreateBusinessModal /></div>
+                {businesses &&
+                    Object.values(businesses).map((business, idx) => (
+                        <div key={idx} className={styles.businessCard}>
+                            <BusinessCard
+                                key={business.id}
+                                business={business}
+                                />
+                        </div>
+                    ))}
+            </div>
+        </>
     );
 };
 export default Businesses;
