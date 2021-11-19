@@ -87,7 +87,7 @@ const NavBar = () => {
               <div className="search-results hidden">
                 {results?.length > 0 && input?.length > 0 ? (
                   results?.map((res) => (
-                    <div className="search-card" onClick={() => reset(res.id)}>
+                    <div className="search-card" onMouseDown={() => reset(res.id)}>
                       <img className="search-image" src={res.image} alt="" />
                       <div>{res.name}</div>
                     </div>
@@ -110,7 +110,7 @@ const NavBar = () => {
               <button className="nav_button" onClick={onLogout}>
                 Logout
               </button>
-              
+
             </div>
           </>
         )}
