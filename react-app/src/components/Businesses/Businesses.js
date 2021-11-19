@@ -33,7 +33,7 @@ const Businesses = () => {
                                 business={business}
                                 />
                         </div>
-                    ))}
+                    )).reverse()}
             </div>
         </>
     );

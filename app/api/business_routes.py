@@ -7,7 +7,7 @@ from app.forms.business_form import BusinessForm
 business_routes = Blueprint('businesses', __name__)
 
 @business_routes.route('', methods=['GET', 'POST'])
-# @login_required
+@login_required
 def businesses():
     form = BusinessForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -15,7 +15,8 @@ def businesses():
         business = Business(**request.json)
         db.session.add(business)
         db.session.commit()
-    return {business.id: business.to_dict() for business in Business.query.all()}
+        return business.to_card_dict()
+    return {business.id: business.to_card_dict() for business in Business.query.all()}
 
 
 
@@ -26,6 +27,7 @@ def business(id):
 
 
 @business_routes.route('/<int:id>', methods=['PUT'])
+@login_required
 def updateBusiness(id):
     form = EditBusinessForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -43,6 +45,7 @@ def updateBusiness(id):
 
 
 @business_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
 def delete_business(id):
     business = Business.query.get(id)
     db.session.delete(business)

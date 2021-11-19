@@ -3,8 +3,6 @@
   position: fixed;
   align-items: center;
   min-width: 100%;
-  top: 0;
-  left: 0;
   height: 85px;
   background-color: rgb(5, 42, 0);
 }
@@ -53,7 +51,6 @@
 
 .search-card{
     background-color: pink;
-    /* margin-top: 80px; */
 }
 
 .search-image{

@@ -81,11 +81,11 @@ export default function businesses(state = initialState, action) {
         ...action.businesses,
       };
     case CREATE_BUSINESS:
-    case UPDATE_BUSINESS:
         return {
             ...state,
             [action.business.id]: action.business
         }
+    case UPDATE_BUSINESS:
     case DELETE_BUSINESS:
         const newState = {...state}
         delete newState[action.business.id]
