@@ -84,7 +84,7 @@ function ReviewCard({review}) {
 
     return (
         <div className={styles.card_container}>
-            <div>{review.review}</div>
+            <div className={styles.review}>{review.review}</div>
             <div>{review.rating}</div>
             {review.user_id === currentUserId ? (
                 <div className={styles.buttonWrapper}>
