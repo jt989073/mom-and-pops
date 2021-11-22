@@ -7,6 +7,7 @@ import { loadReviews } from "../../store/reviews";
 import EditBusinessModal from "../EditBusinessModal";
 import ReviewBusinessModal from "../ReviewBusinessModal/ReviewBusinessModal";
 import ReviewCard from "../ReviewCard/ReviewCard";
+import styles from './SingleBusiness.module.css'
 
 const SingleBusiness = () => {
     const dispatch = useDispatch()
@@ -49,9 +50,9 @@ const SingleBusiness = () => {
 
 
     return (
-        <>
+        <div className={styles.single_business_container}>
             {currentUser.id === business.user_id ?(
-            <>
+            <div className={styles.button_container}>
                 <div>
                     <button onClick={handleDelete}>Delete Business</button>
                 </div>
@@ -61,7 +62,7 @@ const SingleBusiness = () => {
                 <div>
                     <ReviewBusinessModal />
                 </div>
-            </>
+            </div>
         ) : null
         }
             <div>
@@ -72,7 +73,7 @@ const SingleBusiness = () => {
             <div>{business.city}</div>
             <div>{business.state}</div>
             <div>{reviewCards}</div>
-        </>
+        </div>
     )
 }
 
