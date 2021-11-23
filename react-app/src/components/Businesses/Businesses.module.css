@@ -1,3 +1,7 @@
+.businesses_container{
+    margin: none;
+}
+
 .feedWrapper{
     right: 0;
     display: flex;
@@ -9,20 +13,23 @@
     background-repeat: no-repeat;
     background-size: cover;
     justify-content: center;
-    overflow: scroll;
-    overflow-x: hidden;
+    /* overflow: scroll; */
+    /* overflow-x: hidden; */
 
 }
 
+
 .businessCard{
-    margin-top: 100px;
+    margin-top: 20px;
     height: 500px;
     width: 500px;
 }
 
 
 .createButton {
+    display: flex;
+    justify-content: center;
     background-color: rgba(0, 0, 0, 0.548);
-    margin-top: 100px;
+    margin-top: 85px;
     /* margin-right: 50px; */
 }
