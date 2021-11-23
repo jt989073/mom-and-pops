@@ -34,15 +34,15 @@ function CreateBusinessForm({SetBusinessModal}) {
     })
 
     return (
-        <>
+        <div className="create_business_container">
             <div>
-                <h1>Create Business</h1>
+                <div className="create_title">Create Business</div>
             </div>
-            <form onSubmit={formik.handleSubmit}>
-                <div>
+            <form className="business_form" onSubmit={formik.handleSubmit}>
+                <div className="input_container">
                     <input
                         id= "name"
-                        className="name_input"
+                        className="business_input"
                         type="text"
                         name="name"
                         value={formik.values.name}
@@ -55,8 +55,9 @@ function CreateBusinessForm({SetBusinessModal}) {
                     ) : null}
 
                 </div>
-                <div>
+                <div className="input_container">
                     <input
+                        className="business_input"
                         type="text"
                         name="street"
                         id="name"
@@ -70,10 +71,11 @@ function CreateBusinessForm({SetBusinessModal}) {
                     ) : null}
 
                 </div>
-                <div>
+                <div className="input_container">
                     <input
                         type="text"
                         id="city"
+                        className="business_input"
                         value={formik.values.city}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
@@ -83,10 +85,11 @@ function CreateBusinessForm({SetBusinessModal}) {
                         <div className="errorText">{formik.errors.city}</div>
                         ) : null}
                 </div>
-                <div>
+                <div className="input_container">
                     <input
                         type="text"
                         id="state"
+                        className="business_input"
                         value={formik.values.state}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
@@ -96,11 +99,12 @@ function CreateBusinessForm({SetBusinessModal}) {
                         <div className="errorText">{formik.errors.state}</div>
                         ) : null}
                 </div>
-                <div>
+                <div className="input_container">
                     <label>
                         <input
                             type="text"
                             id="image"
+                            className="business_input"
                             value={formik.values.image}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
@@ -111,9 +115,9 @@ function CreateBusinessForm({SetBusinessModal}) {
                         ) : null}
                     </label>
                 </div>
-                <button type="submit">Create</button>
+                <button className="create_button" type="submit">Create</button>
             </form>
-        </>
+        </div>
     );
 }
 

@@ -16,8 +16,18 @@ const LoginForm = ({ setShowModal }) => {
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
+      history.push("/businesses")
     }
   };
+
+const demoLogin = (e) => {
+    e.preventDefault();
+    const email = "demo@aa.io";
+    const password = "password";
+    dispatch(login(email, password));
+    history.push("/businesses");
+};
+
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -28,7 +38,7 @@ const LoginForm = ({ setShowModal }) => {
   };
 
   if (user) {
-    return <Redirect to="/" />;
+    return <Redirect to="/businesses" />;
   }
 
   return (
@@ -59,6 +69,9 @@ const LoginForm = ({ setShowModal }) => {
             onChange={updatePassword}
           />
           <button type="submit">Login</button>
+        </div>
+        <div>
+            <button onClick={demoLogin}>Demo Login</button>
         </div>
       </form>
     </div>

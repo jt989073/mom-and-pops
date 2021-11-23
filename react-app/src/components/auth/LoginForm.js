@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
 import './loginform.css'
 
 const LoginForm = () => {
+const history = useHistory()
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,8 +17,18 @@ const LoginForm = () => {
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
+      history.push("/businesses")
     }
   };
+
+const demoLogin = (e) => {
+    e.preventDefault();
+    const email = "demo@aa.io";
+    const password = "password";
+    dispatch(login(email, password));
+    history.push("/businesses");
+};
+
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -28,7 +39,7 @@ const LoginForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    history.push('/businesses')
   }
 
   return (
@@ -66,6 +77,9 @@ const LoginForm = () => {
               </div>
               <div className="email_container">
                 <button className="login_button" type='submit'>Login</button>
+              </div>
+              <div>
+                <button className="login_button" onClick={demoLogin}>Demo Login</button>
               </div>
             </form>
         </div>
