@@ -69,24 +69,25 @@ function ReviewCard({ review }) {
       <div className="editCard">
         <form onSubmit={formik.handleSubmit}>
           <div>
-            <label>Review</label>
             <textarea
               name="review"
               value={formik.values.review}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+              className="Edit_review_Input"
+              placeholder="Edit your Review!"
             />
             {formik.touched.review && formik.errors.review ? (
             <div className="errorText">{formik.errors.review}</div>
             ) : null}
           </div>
           <div>
-            <label>Rating</label>
             <select
               name="rating"
               value={formik.values.street}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+              className="rating_select"
             >
               <option value="" disabled>
                 --Rating--
@@ -102,8 +103,8 @@ function ReviewCard({ review }) {
             ) : null}
           </div>
           <div>
-            <button type="submit">Update</button>
-            <button onClick={() => setEdit(false)}>Cancel</button>
+            <button className="update_button" type="submit">Update</button>
+            <button className="update_button" onClick={() => setEdit(false)}>Cancel</button>
           </div>
         </form>
       </div>
