@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import { useHistory } from "react-router";
 import { useState } from "react";
 import { updateBusiness } from "../../store/businesses";
-import styles from "./EditBusiness.module.css";
+import "./EditBusiness.css";
 import { loadOneBusiness } from "../../store/business";
 import * as yup from "yup"
 import {useFormik} from "formik"
@@ -37,15 +37,15 @@ function EditBusinessForm({SetBusinessModal}) {
     })
 
     return (
-        <>
+        <div className="edit_business_container">
             <div>
-                <h1>Create Business</h1>
+                <div className="create_title">Edit Business</div>
             </div>
             <form onSubmit={formik.handleSubmit}>
-                <div>
+                <div className="input_container">
                     <input
                         id= "name"
-                        className="name_input"
+                        className="business_input"
                         type="text"
                         name="name"
                         value={formik.values.name}
@@ -58,8 +58,9 @@ function EditBusinessForm({SetBusinessModal}) {
                     ) : null}
 
                 </div>
-                <div>
+                <div className="input_container">
                     <input
+                        className="business_input"
                         type="text"
                         name="street"
                         id="name"
@@ -73,8 +74,9 @@ function EditBusinessForm({SetBusinessModal}) {
                     ) : null}
 
                 </div>
-                <div>
+                <div className="input_container">
                     <input
+                        className="business_input"
                         type="text"
                         id="city"
                         value={formik.values.city}
@@ -86,10 +88,11 @@ function EditBusinessForm({SetBusinessModal}) {
                         <div className="errorText">{formik.errors.city}</div>
                         ) : null}
                 </div>
-                <div>
+                <div className="input_container">
                     <input
                         type="text"
                         id="state"
+                        className="business_input"
                         value={formik.values.state}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
@@ -99,9 +102,10 @@ function EditBusinessForm({SetBusinessModal}) {
                         <div className="errorText">{formik.errors.state}</div>
                         ) : null}
                 </div>
-                <div>
+                <div className="input_container">
                     <label>
                         <input
+                            className="business_input"
                             type="text"
                             id="image"
                             value={formik.values.image}
@@ -114,9 +118,9 @@ function EditBusinessForm({SetBusinessModal}) {
                         ) : null}
                     </label>
                 </div>
-                <button type="submit">Create</button>
+                <button className="create_button" type="submit">Create</button>
             </form>
-        </>
+        </ div>
     );
 }
 
