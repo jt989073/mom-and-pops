@@ -7,6 +7,7 @@ import { loadReviews } from "../../store/reviews";
 import EditBusinessModal from "../EditBusinessModal";
 import ReviewBusinessModal from "../ReviewBusinessModal/ReviewBusinessModal";
 import ReviewCard from "../ReviewCard/ReviewCard";
+import styles from './SingleBusiness.module.css'
 
 const SingleBusiness = () => {
     const dispatch = useDispatch()
@@ -49,30 +50,30 @@ const SingleBusiness = () => {
 
 
     return (
-        <>
+        <div className={styles.single_business_container}>
             {currentUser.id === business.user_id ?(
-            <>
+            <div className={styles.button_container}>
                 <div>
-                    <button onClick={handleDelete}>Delete Business</button>
+                    <button className={styles.delete_button} onClick={handleDelete}>Delete Business</button>
                 </div>
                 <div>
                     <EditBusinessModal />
                 </div>
-                <div>
-                    <ReviewBusinessModal />
-                </div>
-            </>
+            </div>
         ) : null
         }
+            <div className={styles.business_name}>{business.name}</div>
             <div>
                 <img src={business.image} alt="business" />
             </div>
-            <div>{business.name}</div>
-            <div>{business.street}</div>
-            <div>{business.city}</div>
-            <div>{business.state}</div>
-            <div>{reviewCards}</div>
-        </>
+            <div className={styles.business_street}>{business.street}</div>
+            <div className={styles.business_city}>{business.city}</div>
+            <div className={styles.business_state}>{business.state}</div>
+                <div className={styles.review_button_container}>
+                    <ReviewBusinessModal />
+                </div>
+            <div className={styles.business_reviews}>{reviewCards}</div>
+        </div>
     )
 }
 

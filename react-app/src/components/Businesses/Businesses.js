@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {loadBusinesses} from "../../store/businesses"
 import BusinessCard from "./BusinessCard";
-import CreateBusiness from "../CreateBusiness";
+// import CreateBusiness from "../CreateBusiness";
 import styles from "./Businesses.module.css";
 import CreateBusinessModal from "../CreateBusinessModal";
 
@@ -22,9 +22,9 @@ const Businesses = () => {
     }
 
     return (
-        <>
+        <div className={styles.businesses_container}>
+            <div className={styles.createButton}><CreateBusinessModal /></div>
             <div className={styles.feedWrapper}>
-                <div className={styles.createButton}><CreateBusinessModal /></div>
                 {businesses &&
                     Object.values(businesses).map((business, idx) => (
                         <div key={idx} className={styles.businessCard}>
@@ -35,7 +35,7 @@ const Businesses = () => {
                         </div>
                     )).reverse()}
             </div>
-        </>
+        </div>
     );
 };
 export default Businesses;

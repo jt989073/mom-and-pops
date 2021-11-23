@@ -15,7 +15,7 @@ def business_exists(form, field):
 
 class BusinessForm(FlaskForm):
     name = StringField(
-        'name', validators=[DataRequired(), business_exists])
+        'name', validators=[DataRequired()])
     street = StringField('street', validators=[DataRequired()])
     city = StringField('city', validators=[DataRequired()])
     state = StringField('state', validators=[DataRequired()])

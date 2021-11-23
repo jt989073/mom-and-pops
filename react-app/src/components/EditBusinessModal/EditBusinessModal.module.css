@@ -1,0 +1,14 @@
+.business_button{
+    margin-top: 20px;
+    margin-right: 20px;
+    height: 50px;
+    width: 100px;
+    font-size: large;
+    color: rgb(5, 42, 0);
+    background-color: rgb(211, 179, 0);
+}
+
+.business_button:hover{
+    background-color: rgb(5, 42, 0);
+    color: rgb(211, 179, 0);
+}

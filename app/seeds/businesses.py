@@ -2,12 +2,8 @@ from app.models import db, Business
 
 
 def seed_businesses():
-    taylor_insurance = Business(
-        name="Taylor and Miller Insurance Agency", street="120 E Browning Ave", city="Pampa", state="Texas", latitude="35.5389401", longitude="-100.9625158", image="https://res.cloudinary.com/dqwy6sxtc/image/upload/v1637084455/poolupp/10390191_534325233338012_1256927706468887939_n_cppzng.jpg", user_id=1)
-    coffee_shop = Business(
-        name="The Coffee Shop", street="220 N Cuyler", city="Pampa", state="Texas", latitude="29.7884", longitude="95.4566", image="https://dg6qn11ynnp6a.cloudfront.net/wp-content/uploads/2016/09/21134258/hQhi7ZZN.png", user_id=1)
     five_points = Business(
-        name="Five Points Distilling", street="8575 Union Hill Rd", city="Pampa", state="Texas", latitude="32.6847", longitude="96.4779", image="https://res.cloudinary.com/dis83syog/image/upload/v1636208014/SpeakEasy/Screen_Shot_2021-11-06_at_10.12.32_AM_zgguty.png", user_id=3)
+        name="Legacy Insurance Agency", street="1203 N Hobart", city="Pampa", state="Texas", latitude="32.6847", longitude="96.4779", image="https://res.cloudinary.com/dqwy6sxtc/image/upload/v1637642906/mom-and-pops/legacy_gvgn1p.png", user_id=3)
     firestone_robertson = Business(
         name="Firestone & Robertson Distilling Co.", street="4250 Mitchell Blvd", city="Pampa", state="Texas", latitude="32.6999", longitude="97.2901", image="https://res.cloudinary.com/dqwy6sxtc/image/upload/v1634510806/poolupp/Fotolia_82228128_Subscription_Monthly_M_2048x2048_eshw58.jpg", user_id=4)
     blackland = Business(
@@ -40,11 +36,13 @@ def seed_businesses():
         name="Deep Ellum Business", street="2880 Clover St", city="Pampa", state="Texas", latitude="32.7826", longitude="96.7826", image="https://res.cloudinary.com/dis83syog/image/upload/v1636210524/SpeakEasy/336595_1561738304_zsxgfd.jpg", user_id=18)
     lockwood = Business(
         name="Lockwood Distilling Company", street="506 Lockwood Dr", city="Pampa", state="Texas", latitude="32.9523", longitude="96.7360", image="https://res.cloudinary.com/dis83syog/image/upload/v1636210730/SpeakEasy/download_1_ayoe0f.png", user_id=19)
-    trinity_river = Business(
-        name="Trinity River Business Home of Silver Star Spirits", street="1734 E El Paso St", city="PampaFort Worth", state="Texas", latitude="34.0635", longitude="-97.0187", image="https://res.cloudinary.com/dis83syog/image/upload/v1636210994/SpeakEasy/unnamed_lywnzh.jpg", user_id=20)
+    ammons_roofing = Business(
+        name="Ammons roofing", street="511 W. Kentucky St", city="Pampa", state="Texas", latitude="34.0635", longitude="-97.0187", image="https://res.cloudinary.com/dqwy6sxtc/image/upload/v1637658839/mom-and-pops/ammons_ntm9iq.png", user_id=20)
+    coffee_shop = Business(
+        name="The Coffee Shop", street="220 N Cuyler", city="Pampa", state="Texas", latitude="29.7884", longitude="95.4566", image="https://res.cloudinary.com/dqwy6sxtc/image/upload/v1637658573/mom-and-pops/14199647_10154115809229160_4989958656171439901_n_ivcstp.jpg", user_id=1)
+    taylor_insurance = Business(
+        name="Taylor and Miller Insurance Agency", street="120 E Browning Ave", city="Pampa", state="Texas", latitude="35.5389401", longitude="-100.9625158", image="https://res.cloudinary.com/dqwy6sxtc/image/upload/v1637084455/poolupp/10390191_534325233338012_1256927706468887939_n_cppzng.jpg", user_id=1)
 
-    db.session.add(taylor_insurance)
-    db.session.add(coffee_shop)
     db.session.add(five_points)
     db.session.add(firestone_robertson)
     db.session.add(blackland)
@@ -62,7 +60,9 @@ def seed_businesses():
     db.session.add(duckworth)
     db.session.add(deep_ellum)
     db.session.add(lockwood)
-    db.session.add(trinity_river)
+    db.session.add(ammons_roofing)
+    db.session.add(coffee_shop)
+    db.session.add(taylor_insurance)
 
     db.session.commit()
 
