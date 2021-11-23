@@ -3,110 +3,115 @@ import { useDispatch, useSelector } from "react-redux";
 // import { useHistory } from "react-router";
 import { useState } from "react";
 import { createBusiness, loadBusinesses } from "../../store/businesses";
-import styles from "./CreateBusiness.module.css";
+import  "./CreateBusiness.css";
+import * as yup from "yup";
+import {useFormik} from "formik"
 
 function CreateBusinessForm({SetBusinessModal}) {
     const dispatch = useDispatch();
     const userId = useSelector(state => state.session.user.id)
-    console.log(userId, "this the userId")
 
-    const [errors, setErrors] = useState([]);
-    const [businessName, setBusinessName] = useState("");
-    const [street, setStreet] = useState("");
-    const [City, setCity] = useState("");
-    const [state, setState] = useState("");
-    const [image, setImage] = useState("");
-
-
-    const onSubmit = (e) => {
-        e.preventDefault();
-
-        const newBusiness = {
-            name: businessName,
-            street: street,
-            city: City,
-            state: state,
-            image: image,
-            user_id: userId
-        };
-        let createdBusiness = dispatch(createBusiness(newBusiness)).then(() =>
-            dispatch(loadBusinesses())
-        )
-
-        if (createdBusiness) {
-            setErrors(createdBusiness);
+    const formik = useFormik({
+        initialValues: {
+          name: "",
+          street: "",
+          city: "",
+          state: "",
+          image: "",
+          user_id: userId,
+        },
+        validationSchema: yup.object({
+            name: yup.string().min(5).max(50).required("Name must be between 5-50 characters!"),
+            street: yup.string().min(5).max(50).required("Street must be between 5-50 characters!"),
+            city: yup.string().min(5).max(50).required("City must be between 5-50 characters"),
+            state: yup.string().min(2).max(50).required("State must be between 2-50 characters!"),
+            image: yup.string().url().required('Image Url Field is required, please add an Image!'),
+        }),
+        onSubmit: async (values) => {
+            dispatch(createBusiness(values)).then(()=>dispatch(loadBusinesses()))
+            SetBusinessModal(false)
         }
-        SetBusinessModal(false)
-    };
+    })
 
     return (
         <>
             <div>
                 <h1>Create Business</h1>
             </div>
-            <form onSubmit={onSubmit}>
-                <ul>
-                    {errors.map((error) => (
-                        <li key={error}>{error}</li>
-                    ))}
-                </ul>
+            <form onSubmit={formik.handleSubmit}>
                 <div>
-                    {/* <label>Name</label> */}
                     <input
-                        className={styles.name_input}
+                        id= "name"
+                        className="name_input"
                         type="text"
                         name="name"
-                        value={businessName}
-                        required
-                        onChange={(e) => setBusinessName(e.target.value)}
+                        value={formik.values.name}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                         placeholder="Business Name"
                     />
+                    {formik.touched.name && formik.errors.name ? (
+                    <div className="errorText">{formik.errors.name}</div>
+                    ) : null}
+
                 </div>
                 <div>
                     <input
                         type="text"
-                        name="description"
-                        required
-                        value={street}
-                        onChange={(e) => setStreet(e.target.value)}
+                        name="street"
+                        id="name"
+                        value={formik.values.street}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                         placeholder="Street"
                     />
+                    {formik.touched.street && formik.errors.street ? (
+                    <div className="errorText">{formik.errors.street}</div>
+                    ) : null}
+
                 </div>
                 <div>
                     <input
-                        value={City}
                         type="text"
-                        id="text"
-                        required
-                        multiple
-                        onChange={(e) => setCity(e.target.value)}
+                        id="city"
+                        value={formik.values.city}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                         placeholder="City"
                         />
+                        {formik.touched.city && formik.errors.city ? (
+                        <div className="errorText">{formik.errors.city}</div>
+                        ) : null}
                 </div>
                 <div>
                     <input
-                        value={state}
                         type="text"
-                        id="text"
-                        required
-                        multiple
-                        onChange={(e) => setState(e.target.value)}
+                        id="state"
+                        value={formik.values.state}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                         placeholder="State"
                         />
+                        {formik.touched.state && formik.errors.state ? (
+                        <div className="errorText">{formik.errors.state}</div>
+                        ) : null}
                 </div>
                 <div>
-                    <label htmlFor="abv">
+                    <label>
                         <input
                             type="text"
-                            id="logo"
-                            required
-                            value={image}
-                            onChange={(e) => setImage(e.target.value)}
+                            id="image"
+                            value={formik.values.image}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
                             placeholder="Business Image"
                         />
+                        {formik.touched.image && formik.errors.image ? (
+                        <div className="errorText">{formik.errors.image}</div>
+                        ) : null}
                     </label>
                 </div>
-                <button>Create</button>
+                <button type="submit">Create</button>
             </form>
         </>
     );
