@@ -52,3 +52,33 @@
     background-color: rgb(5, 42, 0);
     color: rgb(211, 179, 0);
 }
+
+.Edit_review_Input{
+    height: 100px;
+    width: 500px;
+    background-color: lightgrey;
+}
+
+.Edit_review_Input::placeholder{
+    font-size: 5mm;
+    color: rgb(0, 71, 6);
+}
+
+.rating_select{
+    background-color: lightgrey;
+    width: 200px;
+}
+
+.update_button {
+    height: 40px;
+    width: 85px;
+    margin-left: 25px;
+    font-size: 6mm;
+    background-color: rgb(0, 71, 6);
+    color:#997705;
+}
+
+.update_button:hover{
+    color: rgb(0, 71, 6);
+    background-color:#997705;
+}

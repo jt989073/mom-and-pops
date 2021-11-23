@@ -23,7 +23,7 @@ function ReviewBusinessForm({SetBusinessModal}) {
         },
         validationSchema: yup.object({
             review: yup.string().min(10).max(2000).required("Review must be between 10-2000 characters!"),
-            rating: yup.number().min(1).max(5).required("Street must be between 1-5!"),
+            rating: yup.number().min(1).max(5).required("Rating must be between 1-5!"),
         }),
         onSubmit: async (values) => {
             dispatch(createReview(values)).then(()=>dispatch(loadOneBusiness(businessId)))
@@ -50,11 +50,10 @@ function ReviewBusinessForm({SetBusinessModal}) {
     return (
       <div className="reviewContainer">
         <div className="reviewFormHeader">
-          <h1 className="reviewModalTitle">Review</h1>
+          <div className="reviewModalTitle">Review</div>
         </div>
         <form className="reviewForm" onSubmit={formik.handleSubmit}>
           <div className="formSection">
-            <label className="reviewLabel">Review</label>
             <textarea
               name="review"
               value={formik.values.review}
@@ -70,7 +69,6 @@ function ReviewBusinessForm({SetBusinessModal}) {
           </div>
           <div>
             <div>
-              <label className="reviewLabelTwo">Rating</label>
               <select
                 className="reviewSelect"
                 name="rating"
