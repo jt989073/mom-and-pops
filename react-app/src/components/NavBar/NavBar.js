@@ -49,10 +49,12 @@ const NavBar = () => {
   return (
     <div className="nav_container">
       <div className="left_container">
-        {/* <img
-          src="https://res.cloudinary.com/dqwy6sxtc/image/upload/v1637193255/poolupp/logo_ffu0hf.png"
+        <img
+        onClick={() => history.push('/businesses')}
+        className="logo"
+          src="https://res.cloudinary.com/dqwy6sxtc/image/upload/v1637659666/mom-and-pops/Brown_Shopping_Bag_Logo_1500_x_500_px_1_duh8ys.svg"
           alt="logo"
-        /> */}
+        />
       </div>
       <div className="right_container">
         {!user && (
