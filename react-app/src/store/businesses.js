@@ -25,7 +25,7 @@ const remove = (business) => ({
 })
 /*-------------THUNKS-------------*/
 export const loadBusinesses = () => async (dispatch) => {
-  const res = await fetch("/api/businesses");
+  const res = await fetch("/api/businesses/");
   if (res.ok) {
     const businesses = await res.json();
     dispatch(load(businesses));
@@ -33,7 +33,7 @@ export const loadBusinesses = () => async (dispatch) => {
 };
 
 export const createBusiness = (business) => async (dispatch) => {
-  const res = await fetch("/api/businesses", {
+  const res = await fetch("/api/businesses/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
