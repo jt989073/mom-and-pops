@@ -12,15 +12,21 @@ function EditBusinessForm({SetBusinessModal}) {
     const dispatch = useDispatch();
     const userId = useSelector(state => state.session.user.id)
     const businessId = useSelector(state => state.business.id)
+    const businessName = useSelector(state => state.business.name)
+    const businessStreet = useSelector(state => state.business.street)
+    const businessCity = useSelector(state => state.business.city)
+    const businessState = useSelector(state => state.business.state)
+    const businessImage = useSelector(state => state.business.image)
+
     // console.log(userId, "this the userId")
 
     const formik = useFormik({
         initialValues: {
-          name: "",
-          street: "",
-          city: "",
-          state: "",
-          image: "",
+          name: businessName,
+          street: businessStreet,
+          city: businessCity,
+          state: businessState,
+          image: businessImage,
           user_id: userId,
         },
         validationSchema: yup.object({
@@ -36,10 +42,11 @@ function EditBusinessForm({SetBusinessModal}) {
         }
     })
 
+
     return (
         <>
             <div>
-                <h1>Create Business</h1>
+                <h1>Edit Business</h1>
             </div>
             <form onSubmit={formik.handleSubmit}>
                 <div>
@@ -114,7 +121,7 @@ function EditBusinessForm({SetBusinessModal}) {
                         ) : null}
                     </label>
                 </div>
-                <button type="submit">Create</button>
+                <button type="submit">Update</button>
             </form>
         </>
     );
