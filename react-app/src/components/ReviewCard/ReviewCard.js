@@ -10,8 +10,8 @@ import { useFormik } from "formik";
 function ReviewCard({ review }) {
   const dispatch = useDispatch();
   const [edit, setEdit] = useState(false);
-  // const [editReview, setEditReview] = useState(review.review);
-  // const [editRating, setEditRating] = useState(review.rating);
+  const [editReview, setEditReview] = useState(review.review);
+  const [editRating, setEditRating] = useState(review.rating);
   // const [errors, setErrors] = useState([]);
 
   const currentUserId = useSelector((state) => state.session.user.id);
@@ -38,8 +38,8 @@ function ReviewCard({ review }) {
 
   const formik = useFormik({
     initialValues: {
-      review: "",
-      rating: "",
+      review: editReview,
+      rating: editRating,
       business_id: businessId,
     },
     validationSchema: yup.object({
@@ -52,7 +52,7 @@ function ReviewCard({ review }) {
         .number()
         .min(1)
         .max(5)
-        .required("Street must be between 1-5!"),
+        .required("Rating must be between 1-5!"),
     }),
     onSubmit: async (values) => {
       dispatch(updateReview(review.id, values));
@@ -63,6 +63,7 @@ function ReviewCard({ review }) {
   const handleDelete = () => {
     dispatch(deleteReview(review.id));
   };
+
 
   if (edit) {
     return (
@@ -75,7 +76,7 @@ function ReviewCard({ review }) {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               className="Edit_review_Input"
-              placeholder="Edit your Review!"
+            //   placeholder="Edit your Review!"
             />
             {formik.touched.review && formik.errors.review ? (
             <div className="errorText">{formik.errors.review}</div>
@@ -84,7 +85,7 @@ function ReviewCard({ review }) {
           <div>
             <select
               name="rating"
-              value={formik.values.street}
+              value={formik.values.rating}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               className="rating_select"

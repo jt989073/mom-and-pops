@@ -17,7 +17,6 @@ const history = useHistory()
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
-      history.push("/businesses")
     }
   };
 
