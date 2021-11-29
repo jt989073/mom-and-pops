@@ -68,7 +68,7 @@ const SingleBusiness = () => {
         }
             <div className={styles.business_name}>{business.name}</div>
             <div>
-                <img src={business.image} alt="business" />
+                <img className={styles.business_image} src={business.image} alt="business" />
             </div>
             <div className={styles.business_street}>{business.street}</div>
             <div className={styles.business_city}>{business.city}</div>
