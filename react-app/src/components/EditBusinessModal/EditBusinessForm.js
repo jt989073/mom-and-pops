@@ -1,26 +1,29 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { useHistory } from "react-router";
-import { useState } from "react";
 import { updateBusiness } from "../../store/businesses";
-import styles from "./EditBusiness.module.css";
 import { loadOneBusiness } from "../../store/business";
 import * as yup from "yup"
 import {useFormik} from "formik"
+import "./EditBusiness.css"
 
 function EditBusinessForm({SetBusinessModal}) {
     const dispatch = useDispatch();
     const userId = useSelector(state => state.session.user.id)
     const businessId = useSelector(state => state.business.id)
-    // console.log(userId, "this the userId")
+    const businessName = useSelector(state => state.business.name)
+    const businessStreet = useSelector(state => state.business.street)
+    const businessCity = useSelector(state => state.business.city)
+    const businessState = useSelector(state => state.business.state)
+    const businessImage = useSelector(state => state.business.image)
+
 
     const formik = useFormik({
         initialValues: {
-          name: "",
-          street: "",
-          city: "",
-          state: "",
-          image: "",
+          name: businessName,
+          street: businessStreet,
+          city: businessCity,
+          state: businessState,
+          image: businessImage,
           user_id: userId,
         },
         validationSchema: yup.object({
@@ -36,16 +39,17 @@ function EditBusinessForm({SetBusinessModal}) {
         }
     })
 
+
     return (
-        <>
+        <div className="create_business_container">
             <div>
-                <h1>Create Business</h1>
+                <div className="create_title">Edit Business</div>
             </div>
-            <form onSubmit={formik.handleSubmit}>
+            <form className="business_form" onSubmit={formik.handleSubmit}>
                 <div>
                     <input
                         id= "name"
-                        className="name_input"
+                        className="business_input"
                         type="text"
                         name="name"
                         value={formik.values.name}
@@ -63,6 +67,7 @@ function EditBusinessForm({SetBusinessModal}) {
                         type="text"
                         name="street"
                         id="name"
+                        className="business_input"
                         value={formik.values.street}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
@@ -77,6 +82,7 @@ function EditBusinessForm({SetBusinessModal}) {
                     <input
                         type="text"
                         id="city"
+                        className="business_input"
                         value={formik.values.city}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
@@ -90,6 +96,7 @@ function EditBusinessForm({SetBusinessModal}) {
                     <input
                         type="text"
                         id="state"
+                        className="business_input"
                         value={formik.values.state}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
@@ -104,6 +111,7 @@ function EditBusinessForm({SetBusinessModal}) {
                         <input
                             type="text"
                             id="image"
+                            className="business_input"
                             value={formik.values.image}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
@@ -114,9 +122,9 @@ function EditBusinessForm({SetBusinessModal}) {
                         ) : null}
                     </label>
                 </div>
-                <button type="submit">Create</button>
+                <button className="create_button" type="submit">Update</button>
             </form>
-        </>
+        </div>
     );
 }
 

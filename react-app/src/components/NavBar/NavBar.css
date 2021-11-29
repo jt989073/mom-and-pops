@@ -49,6 +49,8 @@
 .nav_button:hover {
     background-color: lightgrey;
     color: rgb(5, 42, 0);
+    display: flex;
+    align-items: flex-start;
 }
 
 .search-container {
@@ -58,20 +60,28 @@
 
 .search-none {
   position: absolute;
+  background-color: lightgrey;
+  overflow: hidden;
 }
 
 .search-card {
   background-color: lightgrey;
+  height: 100px;
+  border: 1px solid black;
+  margin-bottom: 5px;
 }
 
 .search-image {
-  height: 50px;
-  width: 50px;
+  height: 80px;
+  width: 80px;
 }
 
 .search-results {
   margin-top: 50px;
   position: absolute;
+  height: 800px;
+  /* overflow: scroll; */
+  overflow-x: hidden;
 }
 
 .search-results:hover{

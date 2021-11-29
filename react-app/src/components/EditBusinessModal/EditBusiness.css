@@ -1,0 +1,60 @@
+.errorText{
+    color: red;
+    font-size: 7mm;
+    font-weight: 900;
+}
+
+.create_business_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    width: 60vh;
+    background-color: rgb(121, 121, 121);
+    border-radius: 15px;
+
+}
+
+.create_title {
+    color: rgb(0,71,6);
+    font-size: 1cm;
+    font-weight: bolder;
+}
+
+.business_input{
+    height: 30px;
+    width: 100%;
+    margin: 15px;
+    font-size: 7mm;
+    border-radius: 5px;
+    background-color: #997705;
+    color: rgb(0, 71, 6);
+}
+
+.business_input::placeholder{
+    color: rgb(0, 71, 6);
+}
+
+.input_container{
+    width: 100%;
+}
+
+.business_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create_button{
+    height: 40px;
+    width: 90px;
+    font-size: 6mm;
+    background-color: rgb(0, 71, 6);
+    color:#997705;
+}
+
+.create_button:hover{
+    color: rgb(0, 71, 6);
+    background-color:#997705;
+}

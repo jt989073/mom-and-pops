@@ -3,19 +3,10 @@
 }
 
 .feedWrapper{
-    right: 0;
     display: flex;
     flex-wrap: wrap;
-    min-height: 1175px;
-    min-width: 2400px;
-    background-color: rgba(0, 0, 0, 0.548);
-    /* background-image: url("https://res.cloudinary.com/dqwy6sxtc/image/upload/v1637303783/poolupp/trawa-pampasowa-uprawa-pielegnacja-zastosowanie_ocgvrw.jpg"); */
-    background-repeat: no-repeat;
-    background-size: cover;
     justify-content: center;
-    /* overflow: scroll; */
-    /* overflow-x: hidden; */
-
+    background-color: rgba(0, 0, 0, 0.548);
 }
 
 
@@ -31,5 +22,4 @@
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.548);
     margin-top: 85px;
-    /* margin-right: 50px; */
 }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import { signUp } from "../../store/session";
+import InternalFooter from "../footer";
 import "./signupForm.css"
 
 const SignUpForm = () => {
@@ -98,6 +99,7 @@ const SignUpForm = () => {
           <button className="signup_button" type="submit">Sign Up</button>
         </form>
       </div>
+      <InternalFooter />
     </div>
   );
 };

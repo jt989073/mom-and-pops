@@ -5,6 +5,7 @@ import { loadOneBusiness } from "../../store/business";
 import { deleteBusiness } from "../../store/businesses";
 import { loadReviews } from "../../store/reviews";
 import EditBusinessModal from "../EditBusinessModal";
+import InternalFooter from "../footer";
 import ReviewBusinessModal from "../ReviewBusinessModal/ReviewBusinessModal";
 import ReviewCard from "../ReviewCard/ReviewCard";
 import styles from './SingleBusiness.module.css'
@@ -33,6 +34,9 @@ const SingleBusiness = () => {
     }
 
 
+    if(!currentUser){
+        history.push('/login')
+    }
 
     let reviewCards;
     if (reviews){
@@ -51,7 +55,7 @@ const SingleBusiness = () => {
 
     return (
         <div className={styles.single_business_container}>
-            {currentUser.id === business.user_id ?(
+            {currentUser?.id === business.user_id ?(
             <div className={styles.button_container}>
                 <div>
                     <button className={styles.delete_button} onClick={handleDelete}>Delete Business</button>
@@ -64,7 +68,7 @@ const SingleBusiness = () => {
         }
             <div className={styles.business_name}>{business.name}</div>
             <div>
-                <img src={business.image} alt="business" />
+                <img className={styles.business_image} src={business.image} alt="business" />
             </div>
             <div className={styles.business_street}>{business.street}</div>
             <div className={styles.business_city}>{business.city}</div>
@@ -73,6 +77,7 @@ const SingleBusiness = () => {
                     <ReviewBusinessModal />
                 </div>
             <div className={styles.business_reviews}>{reviewCards}</div>
+            <InternalFooter />
         </div>
     )
 }
