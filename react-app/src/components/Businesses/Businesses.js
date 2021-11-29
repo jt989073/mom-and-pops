@@ -5,6 +5,7 @@ import BusinessCard from "./BusinessCard";
 // import CreateBusiness from "../CreateBusiness";
 import styles from "./Businesses.module.css";
 import CreateBusinessModal from "../CreateBusinessModal";
+import InternalFooter from "../footer";
 
 const Businesses = () => {
     const dispatch = useDispatch();
@@ -35,6 +36,7 @@ const Businesses = () => {
                         </div>
                     )).reverse()}
             </div>
+            <InternalFooter />
         </div>
     );
 };

@@ -5,6 +5,7 @@ import { loadOneBusiness } from "../../store/business";
 import { deleteBusiness } from "../../store/businesses";
 import { loadReviews } from "../../store/reviews";
 import EditBusinessModal from "../EditBusinessModal";
+import InternalFooter from "../footer";
 import ReviewBusinessModal from "../ReviewBusinessModal/ReviewBusinessModal";
 import ReviewCard from "../ReviewCard/ReviewCard";
 import styles from './SingleBusiness.module.css'
@@ -76,6 +77,7 @@ const SingleBusiness = () => {
                     <ReviewBusinessModal />
                 </div>
             <div className={styles.business_reviews}>{reviewCards}</div>
+            <InternalFooter />
         </div>
     )
 }
