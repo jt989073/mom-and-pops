@@ -30,22 +30,6 @@ function ReviewBusinessForm({SetBusinessModal}) {
             SetBusinessModal(false)
         }
     })
-    // const onSubmit = async (e) => {
-    //     e.preventDefault();
-
-    //     if (review) {
-    //         const new_review = {
-    //             review: review,
-    //             rating: rating,
-    //             user_id: userId,
-    //             business_id: businessId,
-    //         };
-    //         dispatch(createReview(new_review)).then(() =>
-    //             dispatch(loadOneBusiness(businessId))
-    //         )
-    //     }
-    //     SetBusinessModal(false)
-    // };
 
     return (
       <div className="reviewContainer">

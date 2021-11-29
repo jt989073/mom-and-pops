@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect, useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
+import InternalFooter from '../footer';
 import './loginform.css'
 
 const LoginForm = () => {
@@ -17,7 +18,6 @@ const history = useHistory()
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
-      history.push("/businesses")
     }
   };
 
@@ -83,6 +83,7 @@ const demoLogin = (e) => {
               </div>
             </form>
         </div>
+        <InternalFooter />
     </div>
   );
 };
