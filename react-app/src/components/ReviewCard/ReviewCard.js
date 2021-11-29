@@ -12,29 +12,9 @@ function ReviewCard({ review }) {
   const [edit, setEdit] = useState(false);
   const [editReview, setEditReview] = useState(review.review);
   const [editRating, setEditRating] = useState(review.rating);
-  // const [errors, setErrors] = useState([]);
 
-  const currentUserId = useSelector((state) => state.session.user.id);
+  const currentUserId = useSelector((state) => state.session.user?.id);
   const businessId = useSelector((state) => state.business.id);
-
-  // const handleEdit = (e) => {
-  //     e.preventDefault();
-  //     const err = [];
-
-  //     if (editReview.length < 2) {
-  //         const error = "Your review must be at least 2 characters long";
-  //         err.push(error);
-  //     }
-  //     if (errors.length === 0) {
-  //         const editedReview = {
-  //             review: editReview,
-  //             rating: editRating,
-  //         };
-  //         dispatch(updateReview(review.id, editedReview));
-  //         setEdit(false);
-  //     }
-  //     setErrors(err);
-  // };
 
   const formik = useFormik({
     initialValues: {
@@ -76,7 +56,6 @@ function ReviewCard({ review }) {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               className="Edit_review_Input"
-            //   placeholder="Edit your Review!"
             />
             {formik.touched.review && formik.errors.review ? (
             <div className="errorText">{formik.errors.review}</div>

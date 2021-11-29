@@ -33,6 +33,9 @@ const SingleBusiness = () => {
     }
 
 
+    if(!currentUser){
+        history.push('/login')
+    }
 
     let reviewCards;
     if (reviews){
@@ -51,7 +54,7 @@ const SingleBusiness = () => {
 
     return (
         <div className={styles.single_business_container}>
-            {currentUser.id === business.user_id ?(
+            {currentUser?.id === business.user_id ?(
             <div className={styles.button_container}>
                 <div>
                     <button className={styles.delete_button} onClick={handleDelete}>Delete Business</button>

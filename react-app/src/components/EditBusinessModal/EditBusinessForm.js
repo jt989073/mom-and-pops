@@ -1,9 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { useHistory } from "react-router";
-import { useState } from "react";
 import { updateBusiness } from "../../store/businesses";
-import styles from "./EditBusiness.module.css";
 import { loadOneBusiness } from "../../store/business";
 import * as yup from "yup"
 import {useFormik} from "formik"
@@ -18,7 +15,6 @@ function EditBusinessForm({SetBusinessModal}) {
     const businessState = useSelector(state => state.business.state)
     const businessImage = useSelector(state => state.business.image)
 
-    // console.log(userId, "this the userId")
 
     const formik = useFormik({
         initialValues: {
