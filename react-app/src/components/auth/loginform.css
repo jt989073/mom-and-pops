@@ -1,9 +1,9 @@
 .login_form_container{
     margin-top: 85px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    /* justify-content: center; */
+    justify-content: center;
     background-color: lightgray;
     height: 100vh;
 }
@@ -18,8 +18,23 @@
 .login_card{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: grey;
-    margin-top: 200px;
+    /* margin-top: 200px; */
+    height: 500px;
+    width: 800px;
+    border: 2px solid rgb(5, 42, 0);
+}
+
+.welcome_text{
+    font-size: 1cm;
+}
+
+.welcome_image{
+    margin: 15px;
+    height: 300px;
+    width: 400px;
 }
 
 .login_title{
