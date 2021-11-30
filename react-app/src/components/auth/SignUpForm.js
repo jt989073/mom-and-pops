@@ -96,7 +96,9 @@ const SignUpForm = () => {
               required={true}
             ></input>
           </div>
-          <button className="signup_button" type="submit">Sign Up</button>
+          <div className="email_container">
+            <button className="signup_button" type="submit">Sign Up</button>
+          </div>
         </form>
       </div>
       <InternalFooter />

@@ -78,7 +78,7 @@ const demoLogin = (e) => {
               <div className="email_container">
                 <button className="login_button" type='submit'>Login</button>
               </div>
-              <div>
+              <div className="email_container">
                 <button className="login_button" onClick={demoLogin}>Demo Login</button>
               </div>
             </form>
