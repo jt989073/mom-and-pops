@@ -43,48 +43,53 @@ const demoLogin = (e) => {
   }
 
   return (
-      <div className="login_form_container">
-        <div className="login_card">
+        <div className="login_form_container">
+            <div className="login_card welcome_text">
+                <div>Welcome Back to Mom and Pops</div>
+                <img className="welcome_image" src="https://res.cloudinary.com/dqwy6sxtc/image/upload/v1637358162/mom-and-pops/welcome-pampa_far2uf.png" alt="" />
+            </div>
 
-              <div className="login_title">Login to Mom and Pops!</div>
-            <form className="form" onSubmit={onLogin}>
-              <div>
-                {errors.map((error, ind) => (
-                    <div key={ind}>{error}</div>
-                    ))}
-              </div>
-              <div className="email_container">
-                <label className="email_label" htmlFor='email'>Email</label>
-                <input
-                className="email_input"
-                name='email'
-                type='text'
-                placeholder='Email'
-                value={email}
-                onChange={updateEmail}
-                />
-              </div>
-              <div className="email_container">
-                <label className="password_label" htmlFor='password'>Password</label>
-                <input
-                className="password_input"
-                  name='password'
-                  type='password'
-                  placeholder='Password'
-                  value={password}
-                  onChange={updatePassword}
-                  />
-              </div>
-              <div className="email_container">
-                <button className="login_button" type='submit'>Login</button>
-              </div>
-              <div>
-                <button className="login_button" onClick={demoLogin}>Demo Login</button>
-              </div>
-            </form>
+            <div className="login_card">
+
+                  <div className="login_title">Login to Mom and Pops!</div>
+                <form className="form" onSubmit={onLogin}>
+                  <div>
+                    {errors.map((error, ind) => (
+                        <div key={ind}>{error}</div>
+                        ))}
+                  </div>
+                  <div className="email_container">
+                    <label className="email_label" htmlFor='email'>Email</label>
+                    <input
+                    className="email_input"
+                    name='email'
+                    type='text'
+                    placeholder='Email'
+                    value={email}
+                    onChange={updateEmail}
+                    />
+                  </div>
+                  <div className="email_container">
+                    <label className="password_label" htmlFor='password'>Password</label>
+                    <input
+                    className="password_input"
+                    name='password'
+                      type='password'
+                      placeholder='Password'
+                      value={password}
+                      onChange={updatePassword}
+                      />
+                  </div>
+                  <div className="email_container">
+                    <button className="login_button" type='submit'>Login</button>
+                  </div>
+                  <div className="email_container">
+                    <button className="login_button" onClick={demoLogin}>Demo Login</button>
+                  </div>
+                </form>
+            </div>
+            <InternalFooter />
         </div>
-        <InternalFooter />
-    </div>
   );
 };
 
