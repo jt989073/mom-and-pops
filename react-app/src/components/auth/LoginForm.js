@@ -45,7 +45,7 @@ const demoLogin = (e) => {
   return (
         <div className="login_form_container">
             <div className="login_card welcome_text">
-                <div>Welcome Back to Mom and Pops</div>
+                <div>Welcome Back to Mom and Pops</div>c
                 <img className="welcome_image" src="https://res.cloudinary.com/dqwy6sxtc/image/upload/v1637358162/mom-and-pops/welcome-pampa_far2uf.png" alt="" />
             </div>
 
