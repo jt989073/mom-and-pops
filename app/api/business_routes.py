@@ -7,7 +7,7 @@ from app.forms.business_form import BusinessForm
 business_routes = Blueprint('businesses', __name__)
 
 @business_routes.route('/', methods=['GET', 'POST'])
-@login_required
+# @login_required
 def businesses():
     form = BusinessForm()
     form['csrf_token'].data = request.cookies['csrf_token']

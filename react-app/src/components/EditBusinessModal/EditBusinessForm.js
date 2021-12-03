@@ -62,8 +62,9 @@ function EditBusinessForm({SetBusinessModal}) {
                     ) : null}
 
                 </div>
-                <div>
+                <div className="input_container">
                     <input
+                        className="business_input"
                         type="text"
                         name="street"
                         id="name"
@@ -78,8 +79,9 @@ function EditBusinessForm({SetBusinessModal}) {
                     ) : null}
 
                 </div>
-                <div>
+                <div className="input_container">
                     <input
+                        className="business_input"
                         type="text"
                         id="city"
                         className="business_input"
@@ -92,7 +94,7 @@ function EditBusinessForm({SetBusinessModal}) {
                         <div className="errorText">{formik.errors.city}</div>
                         ) : null}
                 </div>
-                <div>
+                <div className="input_container">
                     <input
                         type="text"
                         id="state"
@@ -106,9 +108,10 @@ function EditBusinessForm({SetBusinessModal}) {
                         <div className="errorText">{formik.errors.state}</div>
                         ) : null}
                 </div>
-                <div>
+                <div className="input_container">
                     <label>
                         <input
+                            className="business_input"
                             type="text"
                             id="image"
                             className="business_input"

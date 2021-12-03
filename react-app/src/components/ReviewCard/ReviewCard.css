@@ -8,6 +8,7 @@
     height: 250px;
     /* max-height: 175px; */
     width: 80vh;
+    padding: 10px;
 }
 
 .editCard {
